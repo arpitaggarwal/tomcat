@@ -1,0 +1,13 @@
+{
+  "name": "arpitaggarwal/tomcat",
+  "version": "0.1.0",
+  "author": "arpitaggarwal",
+  "summary": "Configure and Install Tomcat on Ubuntu/Debian",
+  "license": "Apache 2.0",
+  "source": "https://github.com/arpitaggarwal/tomcat",
+  "project_page": "https://forge.puppetlabs.com/arpitaggarwal/tomcat",
+  "issues_url": "https://github.com/arpitaggarwal/tomcat/issues",
+  "dependencies": [
+    {"version_requirement":">= 1.0.0","name":"puppetlabs-stdlib"}
+  ]
+}
