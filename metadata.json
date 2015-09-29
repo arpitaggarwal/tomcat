@@ -1,6 +1,6 @@
 {
   "name": "arpitaggarwal/tomcat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "arpitaggarwal",
   "summary": "Configure and Install Tomcat on Ubuntu/Debian",
   "license": "Apache 2.0",
