@@ -51,36 +51,36 @@ class tomcat($version = $default::params::version,
   ) inherits default::params{
 
   package {"tomcat${version}":
-   ensure  => installed,
-   require => Exec['apt-update'],
+    ensure  => installed,
+    require => Exec['apt-update'],
   }
 
   file { "/etc/default/tomcat${version}":
-   ensure  => file,
-   content => template('tomcat/tomcat.erb'),
-   before  => Service["tomcat${version}"],
-   require => Package["tomcat${version}"],
+    ensure  => file,
+    content => template('tomcat/tomcat.erb'),
+    before  => Service["tomcat${version}"],
+    require => Package["tomcat${version}"],
   }
 
   file { "/etc/tomcat${version}/server.xml":
-   ensure  => file,
-   content => template('tomcat/server.erb'),
-   before  => Service["tomcat${version}"],
-   require => Package["tomcat${version}"],
+    ensure  => file,
+    content => template('tomcat/server.erb'),
+    before  => Service["tomcat${version}"],
+    require => Package["tomcat${version}"],
   }
 
   exec { 'apt-update':
-   command  => "/usr/bin/apt-get update",
+    command  => '/usr/bin/apt-get update',
   }
 
   service { "tomcat${version}":
-   ensure   => running,
-   enable   => true,
-   require  => Package["tomcat${version}"],
+    ensure  => running,
+    enable  => true,
+    require => Package["tomcat${version}"],
   }
 
   exec { 'service-restart':
-   require  => Service["tomcat${version}"],
-   command  => "/usr/bin/service tomcat${version} restart",
+    require => Service["tomcat${version}"],
+    command => "/usr/bin/service tomcat${version} restart",
   }
 }
