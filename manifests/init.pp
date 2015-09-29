@@ -41,14 +41,14 @@
 #
 # Arpit Aggarwal <aggarwalarpit.89@gmail.com>
 
-class tomcat($version = $default::params::version,
-  $java_home    = $default::params::java_home,
-  $port         = $default::params::port,
-  $java_opts    = $default::params::java_opts,
-  $jsp_compiler = $default::params::jsp_compiler,
-  $logfile_days = $default::params::logfile_days,
-  $authbind     = $default::params::authbind
-  ) inherits default::params{
+class tomcat($version = $tomcat::default::version,
+  $java_home    = $tomcat::default::java_home,
+  $port         = $tomcat::default::port,
+  $java_opts    = $tomcat::default::java_opts,
+  $jsp_compiler = $tomcat::default::jsp_compiler,
+  $logfile_days = $tomcat::default::logfile_days,
+  $authbind     = $tomcat::default::authbind
+  ) inherits tomcat::default{
 
   package {"tomcat${version}":
     ensure  => installed,
