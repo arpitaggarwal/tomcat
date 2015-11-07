@@ -52,7 +52,7 @@ class tomcat($version = $tomcat::default::version,
 
   package {"tomcat${version}":
     ensure  => installed,
-    require => Exec['apt-update'],
+    require => Exec['execute-apt-update'],
   }
 
   file { "/etc/default/tomcat${version}":
@@ -69,7 +69,7 @@ class tomcat($version = $tomcat::default::version,
     require => Package["tomcat${version}"],
   }
 
-  exec { 'apt-update':
+  exec { 'execute-apt-update':
     command  => '/usr/bin/apt-get update',
   }
 
